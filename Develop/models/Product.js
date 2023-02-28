@@ -15,11 +15,35 @@ Product.init(
       primaryKey: true,
       autoIncrement: true
     },
-    category: {
+    category_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      references: {
+        model: 'Category',
+        key: 'id'
+      }
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    amount: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 1
+    },
+    product_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    
+    tag_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      references: {
+        model: 'Tag',
+        key: 'id'
+      }
+    }
     // define columns
   },
   {
