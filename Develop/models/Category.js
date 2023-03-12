@@ -11,19 +11,11 @@ Category.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     category_type: {
       type: DataTypes.STRING,
-      allowNull: false
-    },
-    product_id: {
-      type: DataTypes.INTEGER,
       allowNull: false,
-      references: {
-        model: 'Product',
-        key: 'id',
-      }
     }
   },
   {

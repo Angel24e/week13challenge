@@ -12,8 +12,8 @@ Product.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
+      primaryKey: true
     },
     category_id: {
       type: DataTypes.STRING,
@@ -24,28 +24,26 @@ Product.init(
       }
     },
     price: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+      validate: {
+        isNumeric: true
+      }
     },
     amount: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 1
+      defaultValue: 10,
+      validate: {
+        isNumeric: true
+      }
     },
     product_name: {
       type: DataTypes.STRING,
-      allowNull: false
-    },
-    tag_id: {
-      type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: 'Tag',
-        key: 'id'
-      }
     }
-    // define columns
   },
+// define columns
   {
     sequelize,
     timestamps: false,
